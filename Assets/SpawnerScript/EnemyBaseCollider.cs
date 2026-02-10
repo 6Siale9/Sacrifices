@@ -4,39 +4,33 @@ using UnityEngine;
 
 public class EnemyBaseCollider : MonoBehaviour
 {
-    [SerializeField] private float _health = 200f;
+    [SerializeField] private float _maxHealth = 200;
+    private float _health = 0;
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        _health = _maxHealth;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SmallGroupAnts")
+        if (other.gameObject.CompareTag("AllyAnt"))
         {
-            Destroy(other.gameObject);
-            _health -= 15f;
-        }
-
-        if (other.gameObject.tag == "MidGroupAnts")
-        {
-            Destroy(other.gameObject);
-            _health -= 45f;
-        }
-
-        if (other.gameObject.tag == "BigGroupAnts")
-        {
-            Destroy(other.gameObject);
-            _health -= 135f;
-        }
-    }
-
-    private void Update()
-    {
-        UpdateHealth();
-    }
-    private void UpdateHealth()
-    {
-        if (_health < 0f)
-        {
-            Destroy(gameObject);
+            Ant ant = other.gameObject.GetComponentInParent<Ant>();
+            if (ant.Size > _health)
+            {
+                ant.Size -= _health;
+                Destroy(gameObject);
+            }
+            else if (ant.Size < _health)
+            {
+                _health -= ant.Size;
+                Destroy(ant.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                Destroy(ant.gameObject);
+            }
         }
     }
 }

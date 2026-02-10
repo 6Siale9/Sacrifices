@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2558882030661170952}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: BigGroupAnts
+  m_TagString: AllyAnt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1031247576085582149}
   m_Layer: 0
   m_Name: 135 ants
-  m_TagString: BigGroupAnts
+  m_TagString: AllyAnt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,3 +181,4 @@ MonoBehaviour:
   _speed: 5
   _mass: 0
   _rigidBody: {fileID: 7559849775818228400}
+  _size: 200
