@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CollapseZone : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class CollapseZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_ants)
+        if (other.CompareTag("AllyAnt"))
         {
+            _currentUnits += other.GetComponent<Character>().Size;
             Destroy(other.gameObject);
             _currentUnits++;
 
