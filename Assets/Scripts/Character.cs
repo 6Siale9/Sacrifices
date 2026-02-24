@@ -14,7 +14,6 @@ public class Character : MonoBehaviour
     private void FollowMouse()
     {
         transform.position = GetWorldMousePosition();
-
     }
     
     private Vector3 GetWorldMousePosition()
@@ -29,9 +28,6 @@ public class Character : MonoBehaviour
             return hit.point;
         }
         return _savePosition;
-        
-
-
     }
     void Update()
     {

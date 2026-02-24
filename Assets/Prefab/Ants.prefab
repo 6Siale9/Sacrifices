@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 68454697004b5cc4eb58e2e955cfd5dc, type: 2}
+  - {fileID: 2100000, guid: ffb33bbc0c025f34e948c5164c1a7464, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7559849775818228400}
   - component: {fileID: 1031247576085582149}
   m_Layer: 0
-  m_Name: 135 ants
+  m_Name: Ants
   m_TagString: AllyAnt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,4 +181,4 @@ MonoBehaviour:
   _speed: 5
   _mass: 0
   _rigidBody: {fileID: 7559849775818228400}
-  _size: 200
+  _size: 15
