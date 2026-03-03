@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _hp = 0;
+    [SerializeField] private int _hp = 0;
 
-    public float Hp { get => _hp; set => _hp = value; }
+    public int Hp { get => _hp; set => _hp = value; }
 
     // Start is called before the first frame update
     void Start()

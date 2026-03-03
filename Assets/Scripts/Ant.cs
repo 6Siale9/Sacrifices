@@ -8,7 +8,7 @@ public class Ant : MonoBehaviour
     #region Attributs
     [SerializeField ] private Camera _camera;
     private Vector3 _savePosition = Vector3.zero;
-    [SerializeField] private float _size = 0;
+    [SerializeField] private int _size = 0;
     [SerializeField] private Collider _collider = null;
     [SerializeField] private float _id = 0;
     [SerializeField] private TMP_Text _text = null;
@@ -17,7 +17,7 @@ public class Ant : MonoBehaviour
     #endregion Attributs
 
     #region Accessors
-    public float Size { get => _size; set => _size = value; }
+    public int Size { get => _size; set => _size = value; }
     public float Id { get => _id; set => _id = value; }
     #endregion Acceessors
 

@@ -19,7 +19,7 @@ public class CollapseZone : MonoBehaviour
     {
         if (other.CompareTag("AllyAnt"))
         {
-            _currentUnits += other.GetComponent<Character>().Size;
+            _currentUnits += other.GetComponent<Ant>().Size;
             Destroy(other.gameObject);
             _currentUnits++;
 
