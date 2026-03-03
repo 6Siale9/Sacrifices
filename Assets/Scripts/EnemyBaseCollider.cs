@@ -11,6 +11,7 @@ public class EnemyBaseCollider : MonoBehaviour
     {
         _health = _maxHealth;
     }
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("AllyAnt"))
@@ -33,4 +34,5 @@ public class EnemyBaseCollider : MonoBehaviour
             }
         }
     }
+    */
 }
