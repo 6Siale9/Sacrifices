@@ -13,17 +13,12 @@ public class Ant : MonoBehaviour
     [SerializeField] private float _id = 0;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
-    [SerializeField] private GameObject _ant = null;
-    [SerializeField] private Mesh _mesh = null;
-    [SerializeField] private bool _selected = false;
-
     // Start is called before the first frame update
     #endregion Attributs
 
     #region Accessors
     public int Size { get => _size; set => _size = value; }
     public float Id { get => _id; set => _id = value; }
-    public bool Selected { get => _selected; set => _selected = value; }
     #endregion Acceessors
 
     void Start()
@@ -34,9 +29,7 @@ public class Ant : MonoBehaviour
     void Update()
     {
         //FollowMouse();
-        CheckForInput();
         UpdateText();
-        
     }
 
     #region Move
@@ -64,15 +57,7 @@ public class Ant : MonoBehaviour
 
     private void DefineARandomID()
     {
-        _id = Random.Range(0f, int.MaxValue);
-
-    }
-
-    private void Setup()
-    {
-        _camera = Camera.main;
-        _text = gameObject.GetComponentInChildren<TMP_Text>();
-        _canva = gameObject.GetComponentInChildren<Canvas>();
+        _id = Random.Range(0f, 50f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,18 +65,17 @@ public class Ant : MonoBehaviour
         GameObject entering = other.gameObject;
         if (entering.CompareTag("AllyAnt"))
         {
-            Ant enteringAnt = entering.GetComponent<Ant>();
-            if (_size > enteringAnt.Size)
+            Ant enteringScript = entering.GetComponent<Ant>();
+            if (_size > enteringScript.Size)
             {
-                _size += enteringAnt.Size;
+                _size += enteringScript.Size;
                 Destroy(entering);
-
             }
-            else if (_size == enteringAnt.Size)
+            else if (_size == enteringScript.Size)
             {
-                if (_id >= enteringAnt.Id)
+                if (_id > enteringScript.Id)
                 {
-                    _size += enteringAnt.Size;
+                    _size += enteringScript.Size;
                     Destroy(entering);
                 }
             }
@@ -121,38 +105,8 @@ public class Ant : MonoBehaviour
     {
         Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
         _canva.transform.rotation = a;
+        
+        
         _text.text = _size.ToString();
-    }
-
-    private void CheckForInput()
-    {
-        if (_selected)
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                Divide();
-            }
-        }
-    }
-
-    private void Divide()
-    {
-        Vector3 position = new Vector3(gameObject.transform.position.x + 2f, gameObject.transform.position.y, gameObject.transform.position.z);
-        GameObject a = Instantiate(_ant, position, gameObject.transform.rotation);
-        bool _isOdd = false;
-        if (_size % 2 != 0)
-            _isOdd = true;
-        _size /= 2;
-        Ant ant = a.GetComponent<Ant>();
-        ant.Size = _size;
-        if (_isOdd)
-            _size += 1;
-        if (ant.Size == 0)
-            Destroy(a);
-        else
-        {
-            _selected = false;
-            ant.Selected = false;
-        }
     }
 }
