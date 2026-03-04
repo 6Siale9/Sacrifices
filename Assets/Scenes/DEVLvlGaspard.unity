@@ -247,7 +247,7 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!1001 &266284415
+--- !u!1001 &353594644
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -261,19 +261,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4586603702162633232, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
       propertyPath: _size
-      value: 30
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586603702162633232, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
+      propertyPath: _selected
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8056030315084971786, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.61299
+      value: 2.3151371
       objectReference: {fileID: 0}
     - target: {fileID: 8056030315084971786, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.50000024
       objectReference: {fileID: 0}
     - target: {fileID: 8056030315084971786, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.016799688
+      value: -1.9222238
       objectReference: {fileID: 0}
     - target: {fileID: 8056030315084971786, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1133,4 +1137,4 @@ SceneRoots:
   - {fileID: 1497728451}
   - {fileID: 1181992065}
   - {fileID: 1049095817}
-  - {fileID: 266284415}
+  - {fileID: 353594644}

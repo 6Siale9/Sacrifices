@@ -23,6 +23,7 @@ public class Ant : MonoBehaviour
     #region Accessors
     public int Size { get => _size; set => _size = value; }
     public float Id { get => _id; set => _id = value; }
+    public bool Selected { get => _selected; set => _selected = value; }
     #endregion Acceessors
 
     void Start()
@@ -125,9 +126,12 @@ public class Ant : MonoBehaviour
 
     private void CheckForInput()
     {
-        if (Input.GetKeyDown("space"))
+        if (_selected)
         {
-            Divide();
+            if (Input.GetKeyDown("space"))
+            {
+                Divide();
+            }
         }
     }
 
@@ -143,5 +147,12 @@ public class Ant : MonoBehaviour
         ant.Size = _size;
         if (_isOdd)
             _size += 1;
+        if (ant.Size == 0)
+            Destroy(a);
+        else
+        {
+            _selected = false;
+            ant.Selected = false;
+        }
     }
 }
