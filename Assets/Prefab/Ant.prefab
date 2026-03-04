@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9114295237001955077}
   - component: {fileID: 5662968311089924891}
   - component: {fileID: 4753301000552958023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3147719618021014243}
   - component: {fileID: 409868405609718051}
   - component: {fileID: 4877434475734507165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ant
   m_TagString: AllyAnt
   m_Icon: {fileID: 0}
@@ -281,11 +281,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4877434475734507165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca889eabd5a3f247b1fa7184ed1bacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _otherScript: {fileID: 4586603702162633232}
 --- !u!1 &6472779160024145629
 GameObject:
@@ -312,7 +311,7 @@ GameObject:
   - component: {fileID: 7404162126922664074}
   - component: {fileID: 3176420819650741}
   - component: {fileID: 8812960394974924562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +400,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1 &7313422571836620922
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +412,7 @@ GameObject:
   - component: {fileID: 3663988866169891809}
   - component: {fileID: 1989099597294765586}
   - component: {fileID: 9029776876274421650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6511031249483768791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

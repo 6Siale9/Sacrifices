@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private LayerMask _antLayerMask;
+
     private CinemachineVirtualCamera _currentCamera = null;
     private float _moveSpeed = 40f;
     private float _zoomSpeed = 10f;
@@ -31,18 +33,18 @@ public class CameraController : MonoBehaviour
         float horizontal = 0f;
         float vertical = 0f;
         //_moveSpeed*= _scroll+5;
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse2))
         {
             vertical -= Input.GetAxis("Mouse Y") * _moveSpeed * Time.deltaTime;
             horizontal -= Input.GetAxis("Mouse X") * _moveSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.W))
             vertical += 1f;
         if (Input.GetKey(KeyCode.S))
             vertical -= 1f;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
             horizontal -= 1f;
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.D))
             horizontal += 1f;
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
@@ -58,19 +60,33 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, _scroll*_zoomSpeed, transform.position.z), 0.1f);
             //transform.Translate(zoomDirection, Space.World);
     }
+
+
+    
     void Click()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            Debug.DrawRay(ray.origin, ray.direction.normalized * 100f, Color.red, 1f);
+            bool isHit = Physics.Raycast(ray.origin, ray.direction.normalized, out hit, 100, _antLayerMask);
+            if (isHit)
             {
-                //Debug.Log("Clicked on: " + hit.collider.name);
+                Debug.Log("Clicked on: " + hit.collider.name);
                 if (hit.collider.CompareTag("AllyAnt"))
                 {
-                    hit.collider.GetComponent<Ant>().Selected = true;
-                    Debug.Log("Clicked");
+                    Ant ant = hit.collider.GetComponent<Ant>();
+                    if (ant.Selected == true)
+                    {
+                        ant.Selected = false;
+                        Debug.Log("Unclicked");
+                    }
+                    else
+                    {
+                        ant.Selected = true;
+                        Debug.Log("Clicked");
+                    }
                 }
                 
             }
