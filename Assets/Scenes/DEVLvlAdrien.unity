@@ -1294,6 +1294,8 @@ MonoBehaviour:
   _antLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _grabCursor: {fileID: 2800000, guid: afc5c9db1054d194f8a1facb00b50172, type: 3}
+  _defaultCursor: {fileID: 2800000, guid: c92b13ab84d8c0a46a3cb32a35b84ac5, type: 3}
 --- !u!114 &1269914574
 MonoBehaviour:
   m_ObjectHideFlags: 0

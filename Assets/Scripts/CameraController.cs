@@ -7,9 +7,10 @@ using UnityEngine.UIElements;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private LayerMask _antLayerMask;
-
+    [SerializeField] private Texture2D _grabCursor;
+    [SerializeField] private Texture2D _defaultCursor;
     private CinemachineVirtualCamera _currentCamera = null;
-    private float _moveSpeed = 40f;
+    private float _moveSpeed = 300f;
     private float _zoomSpeed = 10f;
     private float _minZoom = 0.4f;
     private float _maxZoom = 2.5f;
@@ -35,8 +36,13 @@ public class CameraController : MonoBehaviour
         //_moveSpeed*= _scroll+5;
         if (Input.GetKey(KeyCode.Mouse2))
         {
+            UnityEngine.Cursor.SetCursor(_grabCursor, Vector3.zero, CursorMode.ForceSoftware);
             vertical -= Input.GetAxis("Mouse Y") * _moveSpeed * Time.deltaTime;
             horizontal -= Input.GetAxis("Mouse X") * _moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            UnityEngine.Cursor.SetCursor(_defaultCursor, Vector3.zero, CursorMode.ForceSoftware);
         }
         if (Input.GetKey(KeyCode.W))
             vertical += 1f;
@@ -48,8 +54,9 @@ public class CameraController : MonoBehaviour
             horizontal += 1f;
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-
-        transform.Translate(direction * _moveSpeed * _scroll * Time.deltaTime, Space.World);
+        Vector3 _newposition = transform.position + direction * _moveSpeed * _scroll*Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, _newposition, 0.1f);
+        
     }
     void Zoom()
     {
