@@ -13,12 +13,14 @@ public class Ant : MonoBehaviour
     [SerializeField] private float _id = 0;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
+    private bool _selected = false;
     // Start is called before the first frame update
     #endregion Attributs
 
     #region Accessors
     public int Size { get => _size; set => _size = value; }
     public float Id { get => _id; set => _id = value; }
+    public bool Selected { get => _selected; set => _selected = value; }
     #endregion Acceessors
 
     void Start()
