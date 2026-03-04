@@ -231,8 +231,10 @@ MonoBehaviour:
   _size: 0
   _collider: {fileID: 3147719618021014243}
   _id: 0
-  _text: {fileID: 0}
-  _canva: {fileID: 0}
+  _text: {fileID: 4753301000552958023}
+  _canva: {fileID: 7404162126922664074}
+  _ant: {fileID: 4481151589586961332}
+  _mesh: {fileID: 0}
 --- !u!136 &3147719618021014243
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -408,7 +410,6 @@ GameObject:
   - component: {fileID: 3663988866169891809}
   - component: {fileID: 1989099597294765586}
   - component: {fileID: 9029776876274421650}
-  - component: {fileID: 7608662354813058351}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -481,27 +482,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7608662354813058351
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7313422571836620922}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8239250408335473514
 GameObject:
   m_ObjectHideFlags: 0
