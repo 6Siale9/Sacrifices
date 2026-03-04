@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
+    private CinemachineVirtualCamera _currentCamera = null;
     private float _moveSpeed = 40f;
     private float _zoomSpeed = 10f;
     private float _minZoom = 0.4f;
@@ -13,7 +16,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _currentCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class CameraController : MonoBehaviour
     {
         Movement();
         Zoom();
+        Click();
     }
      void Movement()
     {
@@ -54,4 +58,24 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, _scroll*_zoomSpeed, transform.position.z), 0.1f);
             //transform.Translate(zoomDirection, Space.World);
     }
+    void Click()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                //Debug.Log("Clicked on: " + hit.collider.name);
+                if (hit.collider.CompareTag("AllyAnt"))
+                {
+                    hit.collider.GetComponent<Ant>().Selected = true;
+                    Debug.Log("Clicked");
+                }
+                
+            }
+        }
+    }
+
+
 }
