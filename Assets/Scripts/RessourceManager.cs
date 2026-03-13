@@ -9,6 +9,9 @@ public class RessourceManager : MonoBehaviour
     private static RessourceManager _instance = null;
     public static RessourceManager Instance => _instance;
     private int _food = 0;
+    private int _aphids = 0;
+
+    [SerializeField] private float _health = 100f;
     public int Food
     {
         get => _food;
@@ -17,7 +20,7 @@ public class RessourceManager : MonoBehaviour
             _food = value;
         }
     }
-    private int _aphids = 0;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,20 @@ public class RessourceManager : MonoBehaviour
     {
         
     }
-    
-      public int Aphids => _aphids;
+    public float Health
+    {
+        get => _health;
+        set
+        {
+            _health = value;
+        }
+    }
+     public int Aphids
+    {
+        get => _aphids;
+        set
+        {
+            _aphids = value;
+        }
+    }
 }

@@ -7,8 +7,11 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private Transform _army;
     [SerializeField] private GameObject _ant;
     [SerializeField] private GameObject _farm;
-    private float _seconds = 0f;
-    [SerializeField] private int _pv = 100;
+    
+    private float _cooldown1sec = 0f;
+    [SerializeField] private float _cooldown1 = 1f;
+    [SerializeField] private float _cooldown2 = 5f;
+    private float _cooldown2sec = 0f;
     private bool _healing = false;
     private Vector3 _spawnPosition;
     /* if nouriture est bien faire l'incom sinon stoper l'incom
@@ -19,41 +22,50 @@ public class BaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _spawnPosition = Random.insideUnitSphere * 5f + transform.position;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-         if (_seconds >= 1f)
+        if (RessourceManager.Instance.Health < 100f)
         {
+            _healing = true;
+        }
+        else
+        {
+            _healing = false;
+        }
+        if (_cooldown1sec >= _cooldown1)
+        {
+            _cooldown1 = 0f;
             if (_healing == true)
             {
               if (RessourceManager.Instance.Food > 0)
                 {
                     RessourceManager.Instance.Food -= 1;
-                    _pv += 10;
+                    RessourceManager.Instance.Health += 5;
                 }    
             }
 
         }
-          if (_seconds >= 5f)
+          if (_cooldown2sec >= _cooldown2)
         {
-            _seconds = 0f;
-            if (_healing == true)
+            _cooldown2 = 0f;
+            if (RessourceManager.Instance.Food > 1)
             {
-               if (RessourceManager.Instance.Food > 0)
-                {
-                    RessourceManager.Instance.Food -= 1;
-                    Spawn();
-                }  
-            }
+                RessourceManager.Instance.Food -= 1;
+                Spawn();
+            }  
               
         }
-        _seconds += Time.deltaTime; 
+        _cooldown1 += Time.deltaTime;
+        _cooldown2 += Time.deltaTime;  
+        //RessourceManager.Instance.Aphids
     }
     private void Spawn()
     {
+        _spawnPosition = Random.insideUnitSphere * 5f + transform.position;
         Instantiate(_ant, _spawnPosition, Quaternion.identity, _army);
     }
 }
