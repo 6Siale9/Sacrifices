@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,7 @@ public class CameraController : MonoBehaviour
     private float _minZoom = 0.4f;
     private float _maxZoom = 2.5f;
     private float _scroll = 0f;
+
 
     // Start is called before the first frame update
     void Start()
