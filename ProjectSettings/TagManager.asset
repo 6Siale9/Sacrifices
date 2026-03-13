@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AllyAnt
   - Enemy
+  - WorkStation
   layers:
   - Default
   - TransparentFX
