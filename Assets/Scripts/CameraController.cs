@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         Click();
     }
      void Movement()
-    {
+     {
         float horizontal = 0f;
         float vertical = 0f;
         //_moveSpeed*= _scroll+5;
@@ -57,7 +57,8 @@ public class CameraController : MonoBehaviour
         Vector3 _newposition = transform.position + direction * _moveSpeed * _scroll*Time.deltaTime;
         transform.position = Vector3.Lerp(transform.position, _newposition, 0.1f);
         
-    }
+     }
+
     void Zoom()
     {
         
@@ -68,8 +69,6 @@ public class CameraController : MonoBehaviour
             //transform.Translate(zoomDirection, Space.World);
     }
 
-
-    
     void Click()
     {
         if (Input.GetMouseButtonDown(1))

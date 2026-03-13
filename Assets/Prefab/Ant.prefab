@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 400}
+  m_SizeDelta: {x: 3000, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5662968311089924891
 CanvasRenderer:
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 4586603702162633232}
   - component: {fileID: 3147719618021014243}
   - component: {fileID: 409868405609718051}
-  - component: {fileID: 4877434475734507165}
+  - component: {fileID: 206621245506444398}
   m_Layer: 6
   m_Name: Ant
   m_TagString: AllyAnt
@@ -233,9 +233,6 @@ MonoBehaviour:
   _id: 0
   _text: {fileID: 4753301000552958023}
   _canva: {fileID: 7404162126922664074}
-  _ant: {fileID: 4481151589586961332}
-  _mesh: {fileID: 0}
-  _selected: 0
 --- !u!136 &3147719618021014243
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -286,7 +283,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &4877434475734507165
+--- !u!114 &206621245506444398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,10 +292,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4481151589586961332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca889eabd5a3f247b1fa7184ed1bacb, type: 3}
+  m_Script: {fileID: 11500000, guid: ef76d7ba39fb451438f898d090303868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _otherScript: {fileID: 4586603702162633232}
 --- !u!1 &6472779160024145629
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +332,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0.73}
-  m_SizeDelta: {x: 776, y: 436}
+  m_SizeDelta: {x: 12000, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7404162126922664074
 Canvas:
