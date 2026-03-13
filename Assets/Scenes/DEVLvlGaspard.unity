@@ -130,6 +130,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4377476138827991339, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+      propertyPath: _size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377476138827991339, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 103424968}
+    - target: {fileID: 4377476138827991339, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+      propertyPath: _canva
+      value: 
+      objectReference: {fileID: 103424967}
     - target: {fileID: 4481151589586961332, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -179,6 +191,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+--- !u!223 &103424967 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7404162126922664074, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+  m_PrefabInstance: {fileID: 103424966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &103424968 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4753301000552958023, guid: 4f51521cb7df9ef40bfee041eec39f98, type: 3}
+  m_PrefabInstance: {fileID: 103424966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &129335920
 GameObject:
   m_ObjectHideFlags: 0

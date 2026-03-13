@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.AI.Navigation.Samples;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _size = 0;
     [SerializeField] private bool _AttackBase = false;
+    [SerializeField] private TMP_Text _text = null;
+    [SerializeField] private Canvas _canva = null;
 
     public int Size { get => _size; set => _size = value; }
     public bool AttackBase { get => _AttackBase; set => _AttackBase = value; }
@@ -53,6 +56,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
+        _canva.transform.rotation = a;
+            _text.text = "Enemy size : " + _size.ToString();
     }
 }
