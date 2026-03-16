@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class FoodSource : MonoBehaviour
 {
-    [SerializeField] private float _resourceAvailable = 1;
+    [SerializeField] private int _resourceAvailable = 1;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
 
 
-    public float ResourceAvailable { get => _resourceAvailable; set => _resourceAvailable = value; }
+    public int ResourceAvailable { get => _resourceAvailable; set => _resourceAvailable = value; }
 
     // Start is called before the first frame update
     void Start()

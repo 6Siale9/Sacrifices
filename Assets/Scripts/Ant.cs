@@ -50,14 +50,14 @@ public class Ant : MonoBehaviour
     #region Initiate
     private void AddToList()
     {
-        CentralRessource.Instance.Ants.Add(this);
+        RessourceManager.Instance.Ants.Add(this);
     }
 
     private void DefineID()
     {
-        if (CentralRessource.Instance.Ants.Count != 0)
+        if (RessourceManager.Instance.Ants.Count != 0)
         {
-            _id = CentralRessource.Instance.Ants[CentralRessource.Instance.Ants.Count - 1].Id + 1;
+            _id = RessourceManager.Instance.Ants[RessourceManager.Instance.Ants.Count - 1].Id + 1;
         }
         else
         {
@@ -103,13 +103,13 @@ public class Ant : MonoBehaviour
                 _sliderValue = 0;
                 if (_workstation.ResourceAvailable > _size)
                 {
-                    // Bouffe += _size ici
+                    RessourceManager.Instance.Food += _size;
                     Debug.Log("Miam : " + _size);
                     _workstation.ResourceAvailable -= _size;
                 }
                 else
                 {
-                    // Bouffe += _workstation.RessourceAvailable ici
+                    RessourceManager.Instance.Food += _workstation.ResourceAvailable;
                     Debug.Log("Miam : " + _workstation.ResourceAvailable);
                     _workstation.ResourceAvailable -= _size;
                     _working = false;
