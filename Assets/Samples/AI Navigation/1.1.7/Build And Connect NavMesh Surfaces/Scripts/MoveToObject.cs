@@ -13,6 +13,8 @@ namespace Unity.AI.Navigation.Samples
         RaycastHit _HitInfo = new RaycastHit();
         [SerializeField] private GameObject _target = null;
 
+        public GameObject Target { get => _target; set => _target = value; }
+
         void Start()
         {
             _Agent = GetComponent<NavMeshAgent>();
@@ -24,8 +26,8 @@ namespace Unity.AI.Navigation.Samples
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray.origin, ray.direction, out m_HitInfo))*/
-            if (Vector3.Distance(gameObject.transform.position, _target.transform.position) > 2)
-                _Agent.destination = _target.transform.position;
+            if (Vector3.Distance(gameObject.transform.position, Target.transform.position) > 2)
+                _Agent.destination = Target.transform.position;
             else
                 gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
             //}
