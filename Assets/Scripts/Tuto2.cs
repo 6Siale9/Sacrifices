@@ -7,7 +7,7 @@ using UnityEngine;
 public class Tuto2 : MonoBehaviour
 {
     [SerializeField] private Ant _ant = null;
-    private bool _done = false;
+    private int _done = 0;
     private int _state = 0;
     [SerializeField] private TMP_Text _text = null;
 
@@ -27,19 +27,26 @@ public class Tuto2 : MonoBehaviour
 
     private void CheckForInput()
     {
-        if (_done)
-        {
+
             if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            switch (_done)
             {
-                _state = 2;
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
                 NextText();
             }
             if (Input.GetMouseButtonUp(0))
             {
-                _state = 2;
-                NextText();
+
             }
-        }
     }
 
     private void NextText()
