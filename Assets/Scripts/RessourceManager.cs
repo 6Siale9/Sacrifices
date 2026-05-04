@@ -21,7 +21,15 @@ public class RessourceManager : MonoBehaviour
             _food = value;
         }
     }
-
+     public int Health
+     {
+        get => _health;
+        set
+        {
+            _health = value;
+        }
+     }
+    private int _health = 100;
     public List<Ant> Ants
     {
         get => _ants;
@@ -77,4 +85,5 @@ public class RessourceManager : MonoBehaviour
     }
     
       public int Aphids => _aphids;
+      
 }
