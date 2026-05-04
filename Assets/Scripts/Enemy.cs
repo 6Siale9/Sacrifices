@@ -29,25 +29,25 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<MoveToObject>().Target = CentralRessource.Instance.Base;
+            gameObject.GetComponent<MoveToObject>().Target = RessourceManager.Instance.Base;
         }
     }
 
     private void GetNearestAnt()
     {
         Ant savedAnt = null;
-        for (int i = 0; i < CentralRessource.Instance.Ants.Count; i++) 
+        for (int i = 0; i < RessourceManager.Instance.Ants.Count; i++) 
         {
             float savedDistance = 0;
-            if (Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position) < savedDistance)
+            if (Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position) < savedDistance)
             {
-                savedDistance = Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
-                savedAnt = CentralRessource.Instance.Ants[i];
+                savedDistance = Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
+                savedAnt = RessourceManager.Instance.Ants[i];
             }
             else if (savedAnt == null)
             {
-                savedDistance = Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
-                savedAnt = CentralRessource.Instance.Ants[i];
+                savedDistance = Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
+                savedAnt = RessourceManager.Instance.Ants[i];
             }
         }
         gameObject.GetComponent<MoveToObject>().Target = savedAnt.gameObject;

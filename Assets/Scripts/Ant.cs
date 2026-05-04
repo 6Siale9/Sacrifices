@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Linq;
 
 public class Ant : MonoBehaviour
 {
@@ -13,7 +15,13 @@ public class Ant : MonoBehaviour
     [SerializeField] private float _id = 0;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
-    private bool _selected = false;
+    [SerializeField] private bool _selected = false;
+    #region Work
+    [SerializeField] private bool _working = false;
+    private float _sliderValue = 0;
+    [SerializeField] private Slider _slider = null;
+    [SerializeField] private FoodSource _workstation = null;
+    #endregion Work
     #endregion Attributs
 
     #region Accessors
@@ -34,27 +42,31 @@ public class Ant : MonoBehaviour
 
     void Update()
     {
-        UpdateText();
+        UpdateUI();
         CheckForInput();
+        WorkLogic();
     }
 
+    #region Initiate
     private void AddToList()
     {
-        CentralRessource.Instance.Ants.Add(this);
+        RessourceManager.Instance.Ants.Add(this);
     }
 
     private void DefineID()
     {
-        if (CentralRessource.Instance.Ants.Count != 0)
+        if (RessourceManager.Instance.Ants.Count != 0)
         {
-            _id = CentralRessource.Instance.Ants[CentralRessource.Instance.Ants.Count - 1].Id + 1;
+            _id = RessourceManager.Instance.Ants[RessourceManager.Instance.Ants.Count - 1].Id + 1;
         }
         else
         {
             _id = 0;
         }
     }
+    #endregion Initiate
 
+    #region Tick
     private void CheckForInput()
     {
         if (Input.GetKeyDown("space") && _selected)
@@ -63,6 +75,53 @@ public class Ant : MonoBehaviour
         }
     }
 
+    private void UpdateUI()
+    {
+        Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
+        _canva.transform.rotation = a;
+        if (_selected)
+        {
+            _text.text = "<" + _size.ToString() + ">";
+        }
+        else
+        {
+            _text.text = _size.ToString();
+        }
+        _slider.value = _sliderValue;
+    }
+
+    private void WorkLogic()
+    {
+        if (_working)
+        {
+            if (_sliderValue <= 1)
+            {
+                _sliderValue += Time.deltaTime * 0.1f;
+            }
+            else
+            {
+                _sliderValue = 0;
+                if (_workstation.ResourceAvailable > _size)
+                {
+                    RessourceManager.Instance.Food += _size;
+                    Debug.Log("Miam : " + _size);
+                    _workstation.ResourceAvailable -= _size;
+                }
+                else
+                {
+                    RessourceManager.Instance.Food += _workstation.ResourceAvailable;
+                    Debug.Log("Miam : " + _workstation.ResourceAvailable);
+                    _workstation.ResourceAvailable -= _size;
+                    _working = false;
+                    _sliderValue = 0;
+                    _workstation = null;
+                }
+            }
+        }
+    }
+    #endregion Tick
+
+    #region Trigger
     private void OnTriggerEnter(Collider other)
     {
         GameObject entering = other.gameObject;
@@ -110,21 +169,24 @@ public class Ant : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (entering.CompareTag("WorkStation"))
+        {
+            _working = true;
+            _workstation = entering.GetComponentInParent<FoodSource>();
+        }
     }
 
-    private void UpdateText()
+    private void OnTriggerExit(Collider other)
     {
-        Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
-        _canva.transform.rotation = a;
-        if (_selected)
+        if (other.gameObject.CompareTag("WorkStation"))
         {
-            _text.text = "<" + _size.ToString() + ">";
-        }
-        else
-        {
-            _text.text = _size.ToString();
+            _working = false;
+            _workstation = null;
+
+            _sliderValue = 0;
         }
     }
+    #endregion Trigger
 
     private void Divide()
     {
