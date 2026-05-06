@@ -153,7 +153,7 @@ public class Ant : MonoBehaviour
         }
         else if (entering.CompareTag("Enemy"))
         {
-            Instantiate(_blood, transform.position, Quaternion.identity);
+            Instantiate(_blood, transform.position, Quaternion.Euler(-90f, 0f, 0f));
             Enemy enteringScript = entering.GetComponent<Enemy>();
             if (enteringScript.Size > _size)
             {

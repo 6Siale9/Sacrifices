@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Texture2D _grabCursor;
     [SerializeField] private Texture2D _defaultCursor;
     private CinemachineVirtualCamera _currentCamera = null;
-    private float _moveSpeed = 350f;
+    private float _moveSpeed = 315f;
     private float _zoomSpeed = 10f;
     private float _minZoom = 0.3f;
     private float _maxZoom = 3f;
