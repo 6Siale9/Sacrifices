@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<MoveToObject>().Target = RessourceManager.Instance.Base;
+            BaseManager bm = RessourceManager.Instance.Base.GetComponent<BaseManager>();
+            gameObject.GetComponent<MoveToObject>().Target = bm.EnemyObj.gameObject;
         }
     }
 
