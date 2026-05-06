@@ -1,1 +1,1 @@
-Assets/Scenes/Lvl2.unity
+Assets/Scenes/MainMenuScene.unity
