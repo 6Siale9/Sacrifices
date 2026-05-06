@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseManager : MonoBehaviour
 {
     [SerializeField] private Transform _army;
+    [SerializeField] private Transform _enemyObj;
     [SerializeField] private GameObject _ant;
     [SerializeField] private GameObject _farm;
     
@@ -14,15 +15,23 @@ public class BaseManager : MonoBehaviour
     private float _cooldown2sec = 0f;
     private bool _healing = false;
     private Vector3 _spawnPosition;
+
+    public Transform EnemyObj { get => _enemyObj; set => _enemyObj = value; }
+
     /* if nouriture est bien faire l'incom sinon stoper l'incom
-    quand la fourmis spawn elle se fusionne dans un tas en attente 
-    on trigger enter se supprimer et donner sa size a la fourmis qui spawn
-    */
-    
+quand la fourmis spawn elle se fusionne dans un tas en attente 
+on trigger enter se supprimer et donner sa size a la fourmis qui spawn
+*/
+
     // Start is called before the first frame update
     void Start()
     {
-       
+       Initialize();
+    }
+
+    private void Initialize()
+    {
+        RessourceManager.Instance.Base = this.gameObject;
     }
 
     // Update is called once per frame

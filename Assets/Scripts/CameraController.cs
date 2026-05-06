@@ -58,7 +58,11 @@ public class CameraController : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         Vector3 _newposition = transform.position + direction * _moveSpeed * _scroll*Time.deltaTime;
         transform.position = Vector3.Lerp(transform.position, _newposition, 0.1f);
-        
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, -25f,25f),
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, -25f, 25f)
+        );
      }
 
     void Zoom()

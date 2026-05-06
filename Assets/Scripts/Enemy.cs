@@ -8,7 +8,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _size = 0;
-    [SerializeField] private bool _AttackBase = false;
+    [SerializeField] private bool _AttackBase = true;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
 
@@ -23,31 +23,32 @@ public class Enemy : MonoBehaviour
 
     private void StartLogic()
     {
-        if (_AttackBase)
+        if (!_AttackBase)
         {
             GetNearestAnt();
         }
         else
         {
-            gameObject.GetComponent<MoveToObject>().Target = CentralRessource.Instance.Base;
+            BaseManager bm = RessourceManager.Instance.Base.GetComponent<BaseManager>();
+            gameObject.GetComponent<MoveToObject>().Target = bm.EnemyObj.gameObject;
         }
     }
 
     private void GetNearestAnt()
     {
         Ant savedAnt = null;
-        for (int i = 0; i < CentralRessource.Instance.Ants.Count; i++) 
+        for (int i = 0; i < RessourceManager.Instance.Ants.Count; i++) 
         {
             float savedDistance = 0;
-            if (Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position) < savedDistance)
+            if (Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position) < savedDistance)
             {
-                savedDistance = Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
-                savedAnt = CentralRessource.Instance.Ants[i];
+                savedDistance = Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
+                savedAnt = RessourceManager.Instance.Ants[i];
             }
             else if (savedAnt == null)
             {
-                savedDistance = Vector3.Distance(CentralRessource.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
-                savedAnt = CentralRessource.Instance.Ants[i];
+                savedDistance = Vector3.Distance(RessourceManager.Instance.Ants[i].gameObject.transform.position, gameObject.transform.position);
+                savedAnt = RessourceManager.Instance.Ants[i];
             }
         }
         gameObject.GetComponent<MoveToObject>().Target = savedAnt.gameObject;
