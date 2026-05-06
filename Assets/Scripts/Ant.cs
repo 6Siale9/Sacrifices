@@ -21,6 +21,7 @@ public class Ant : MonoBehaviour
     private float _sliderValue = 0;
     [SerializeField] private Slider _slider = null;
     [SerializeField] private FoodSource _workstation = null;
+    [SerializeField] private ParticleSystem _blood = null;
     #endregion Work
     #endregion Attributs
 
@@ -152,6 +153,7 @@ public class Ant : MonoBehaviour
         }
         else if (entering.CompareTag("Enemy"))
         {
+            Instantiate(_blood, transform.position, Quaternion.identity);
             Enemy enteringScript = entering.GetComponent<Enemy>();
             if (enteringScript.Size > _size)
             {
