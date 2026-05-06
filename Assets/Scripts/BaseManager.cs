@@ -58,7 +58,7 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
             }
 
         }
-          if (_cooldown2sec >= _cooldown2)
+        if (_cooldown2sec >= _cooldown2 && !_healing && RessourceManager.Instance.Food > 0)
         {
             _cooldown2 = 0f;
             if (RessourceManager.Instance.Food > 1)
@@ -72,9 +72,11 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
         _cooldown2 += Time.deltaTime;  
         //RessourceManager.Instance.Aphids
     }
+
     private void Spawn()
     {
         _spawnPosition = Random.insideUnitSphere * 5f + transform.position;
+        _spawnPosition.y = 1;
         Instantiate(_ant, _spawnPosition, Quaternion.identity, _army);
     }
 }
