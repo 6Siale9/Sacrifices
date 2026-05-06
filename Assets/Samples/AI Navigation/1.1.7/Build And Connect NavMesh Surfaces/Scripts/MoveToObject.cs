@@ -26,8 +26,11 @@ namespace Unity.AI.Navigation.Samples
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray.origin, ray.direction, out m_HitInfo))*/
+            if (Target != null)
+            {
             if (Vector3.Distance(gameObject.transform.position, Target.transform.position) > 2)
                 _Agent.destination = Target.transform.position;
+            }
             else
                 gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
             //}

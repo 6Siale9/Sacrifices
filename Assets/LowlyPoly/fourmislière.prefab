@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4006304509284239885}
   - component: {fileID: 6171035127644892999}
   - component: {fileID: 4204712240622020709}
+  - component: {fileID: 6521461559903679992}
   m_Layer: 0
   m_Name: "fourmisli\xE8re"
   m_TagString: Untagged
@@ -26,10 +27,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007455666186878071}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.825494, w: 0.564411}
+  m_LocalRotation: {x: 0, y: 0, z: -0.825493, w: 0.5644125}
   m_LocalPosition: {x: 130.2, y: -0.4, z: 151.16292}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.98, y: 1.99, z: 3.98}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.277}
@@ -83,3 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6521461559903679992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007455666186878071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d24c6b5bd03504fb84bd653033908c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _army: {fileID: 0}
+  _ant: {fileID: 0}
+  _farm: {fileID: 0}
+  _cooldown1: 1
+  _cooldown2: 5

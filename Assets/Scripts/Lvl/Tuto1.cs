@@ -4,10 +4,10 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Tuto2 : MonoBehaviour
+public class Tuto1 : MonoBehaviour
 {
     [SerializeField] private Ant _ant = null;
-    private int _done = 0;
+    private bool _done = false;
     private int _state = 0;
     [SerializeField] private TMP_Text _text = null;
 
@@ -20,33 +20,49 @@ public class Tuto2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForSelection();
         CheckForInput();
     }
 
-
+    private void Bravo()
+    {
+        if (_state < 3)
+        {
+            _state = 3;
+            NextText();
+        }
+    }
 
     private void CheckForInput()
     {
-
-            if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            switch (_done)
+            if (_state != 3)
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+                _state += 1;
                 NextText();
             }
-            if (Input.GetMouseButtonUp(0))
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (_state != 2)
             {
-
+                _state += 1;
+                NextText();
             }
+        }
+    }
+
+    private void CheckForSelection()
+    {
+        if (!_done)
+        {
+            if (_ant.Selected)
+            {
+                _done = true;
+                Bravo();
+            }
+        }
     }
 
     private void NextText()
@@ -54,10 +70,10 @@ public class Tuto2 : MonoBehaviour
         switch (_state)
         {
             case 0:
-                _text.text = "Les fourmis rouge arrivent bientôt, mène cette fourmis vers une source de nourriture";
+                _text.text = "Bienvenue, vite les fourmis ont besoin de toi";
                 break;
             case 1:
-                _text.text = "";
+                _text.text = "Mène celle ci jusque sa fourmilière";
                 break;
             case 2:
                 _text.text = "Pour pouvoir la diriger, sélectionne la avec clic droit";
@@ -69,7 +85,7 @@ public class Tuto2 : MonoBehaviour
                 _text.text = "Tu peux toujours la désélectionner avec clic droit";
                 break;
             case 5:
-                _text.text = "Maintenant emmène là jusqu'au point en surbrillance";
+                _text.text = "Maintenant emmène là jusque chez elle au bout du chemin de terre";
                 break;
             case 6:
                 _text.text = "Bonne chance !";

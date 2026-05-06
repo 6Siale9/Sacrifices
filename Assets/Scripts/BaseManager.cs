@@ -22,7 +22,12 @@ public class BaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+       Initialize();
+    }
+
+    private void Initialize()
+    {
+        RessourceManager.Instance.Base = this.gameObject;
     }
 
     // Update is called once per frame

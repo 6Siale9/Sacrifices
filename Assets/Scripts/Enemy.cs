@@ -8,7 +8,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _size = 0;
-    [SerializeField] private bool _AttackBase = false;
+    [SerializeField] private bool _AttackBase = true;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private Canvas _canva = null;
 
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void StartLogic()
     {
-        if (_AttackBase)
+        if (!_AttackBase)
         {
             GetNearestAnt();
         }
