@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
-    [SerializeField] private string _sceneToCall = null;
     private bool _a = false;
 
     // Start is called before the first frame update
@@ -25,7 +24,7 @@ public class NextScene : MonoBehaviour
     {
         if (_a)
         {
-            SceneManager.LoadScene(_sceneToCall);
+            SceneManager.LoadScene(1);
         }
         else
         {
