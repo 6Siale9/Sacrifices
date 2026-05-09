@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tuto2 : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Tuto2 : MonoBehaviour
     private int _state = 0;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private GameObject _gameObject = null;
+    private float _cd = 9;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,23 @@ public class Tuto2 : MonoBehaviour
     {
         CheckForSelection();
         CheckForInput();
+        Wait();
+    }
+
+    private void Wait()
+    {
+        if (_done)
+        {
+            if (_cd > 0)
+            {
+                _cd -= Time.deltaTime;
+            }
+            else
+            {
+                _done = false;
+                _state = 7;
+            }
+        }
     }
 
     private void Bravo()
@@ -36,7 +55,7 @@ public class Tuto2 : MonoBehaviour
 
     private void CheckForInput()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             if (_state != 3 && _state != 6)
             {
@@ -75,7 +94,7 @@ public class Tuto2 : MonoBehaviour
         switch (_state)
         {
             case 0:
-                _text.text = "Envoie des fourmis sur des points de ressources pour qu'elles commencent à récolter";
+                _text.text = "Envoie des fourmis sur les points de ressources pour qu'elles commencent à récolter";
                 break;
             case 1:
                 _text.text = "La nourriture récoltée permet de générer plus de fourmis";
@@ -95,7 +114,15 @@ public class Tuto2 : MonoBehaviour
             case 6:
                 _text.text = "";
                 break;
-
+            case 7:
+                _text.text = "Bien, te voilà prêt. Tente de reconstruire les ruines de prochains niveaux en sacrifiant des fourmis pour la tache";
+                break;
+            case 8:
+                _text.text = "Bonne chance et attention aux terriers ennemis !";
+                break;
+            case 9:
+                SceneManager.LoadScene(4);
+                break;
             default:
                 _text.text = "";
                 break;

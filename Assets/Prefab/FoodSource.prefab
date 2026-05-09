@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089515328630897675}
   - component: {fileID: 773907729334090684}
+  - component: {fileID: 1757496836337881696}
   m_Layer: 0
   m_Name: FoodSource
   m_TagString: WorkStation
@@ -49,6 +50,27 @@ MonoBehaviour:
   _resourceAvailable: 4
   _text: {fileID: 5256507128096787181}
   _canva: {fileID: 7806418616634501005}
+--- !u!135 &1757496836337881696
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273976041769433384}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2551895086712488856
 GameObject:
   m_ObjectHideFlags: 0
