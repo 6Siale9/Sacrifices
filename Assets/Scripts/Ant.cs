@@ -140,7 +140,7 @@ public class Ant : MonoBehaviour
             }
             else if (_size == enteringScript.Size)
             {
-                if (_id > enteringScript.Id)
+                if (_id >= enteringScript.Id)
                 {
                     _size += enteringScript.Size;
                     if (enteringScript.Selected)

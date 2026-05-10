@@ -14,7 +14,7 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private float _cooldown2 = 5f;
     private float _cooldown2sec = 0f;
     private bool _healing = false;
-    private Vector3 _spawnPosition;
+    private Vector3 _spawnPosition = new Vector3(3.2f, 0.5f, 9.2f);
 
     public Transform EnemyObj { get => _enemyObj; set => _enemyObj = value; }
 
@@ -47,29 +47,29 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
         }
         if (_cooldown1sec >= _cooldown1)
         {
-            _cooldown1 = 0f;
+            _cooldown1 = 5f;
             if (_healing == true)
             {
               if (RessourceManager.Instance.Food > 0)
                 {
                     RessourceManager.Instance.Food -= 1;
-                    RessourceManager.Instance.Health += 5;
+                    RessourceManager.Instance.Health += 3;
                 }    
             }
 
         }
         if (_cooldown2sec >= _cooldown2 && !_healing && RessourceManager.Instance.Food > 0)
         {
-            _cooldown2 = 0f;
-            if (RessourceManager.Instance.Food > 1)
+            _cooldown2 = 5f;
+            if (RessourceManager.Instance.Food > 2)
             {
                 RessourceManager.Instance.Food -= 1;
                 Spawn();
             }  
               
         }
-        _cooldown1 += Time.deltaTime;
-        _cooldown2 += Time.deltaTime;  
+        _cooldown1 -= Time.deltaTime;
+        _cooldown2 -= Time.deltaTime;  
         //RessourceManager.Instance.Aphids
     }
 
@@ -78,5 +78,23 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
         _spawnPosition = Random.insideUnitSphere * 5f + transform.position;
         _spawnPosition.y = 1;
         Instantiate(_ant, _spawnPosition, Quaternion.identity, _army);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject merde = other.gameObject;
+        if (merde.CompareTag("Enemy"))
+        {
+            Enemy enemy = merde.GetComponent<Enemy>();
+            RessourceManager.Instance.Health -= enemy.Size;
+            if (RessourceManager.Instance.Health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(enemy.gameObject);
+            }
+        }
     }
 }

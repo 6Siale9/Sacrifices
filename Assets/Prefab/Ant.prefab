@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _size: 3
+  _size: 1
   _collider: {fileID: 3147719618021014243}
   _id: 0
   _text: {fileID: 4753301000552958023}
@@ -398,6 +398,7 @@ MonoBehaviour:
   _working: 0
   _slider: {fileID: 1828358638597028690}
   _workstation: {fileID: 0}
+  _blood: {fileID: 7453426890033088486, guid: 8029f454bda40244787db3a8c204b9df, type: 3}
 --- !u!136 &3147719618021014243
 CapsuleCollider:
   m_ObjectHideFlags: 0
