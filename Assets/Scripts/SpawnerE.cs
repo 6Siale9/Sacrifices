@@ -42,7 +42,7 @@ public class SpawnerE : MonoBehaviour
             GameObject a = Instantiate(_ant);
             Enemy enemy = a.GetComponent<Enemy>();
             enemy.Size = _size;
-            int i = Random.Range(0, 100);
+            int i = Random.Range(0, 50);
             if (i < 50)
             {
                 enemy.AttackBase = true;

@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: ca4b0084b14ce0c48a3313a4ac7153c0, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0f260f5ec307d0b42a6d891c5ea82c49, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1049095817
 Transform:
@@ -3353,7 +3353,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 377792925fa1d034abd97fba0e27a595, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a013f11dd9b74b9499fe7194eaa35a10, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1181992065
 Transform:
@@ -5639,7 +5639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc2d6c7a4f418d43a11a7855e03e81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scene: 0
+  _scene: 6
   _toDo: 3
 --- !u!4 &1976896108
 Transform:

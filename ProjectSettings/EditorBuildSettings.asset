@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl5.unity
     guid: 9652f1269a862da41b2052cde1626398
+  - enabled: 1
+    path: Assets/Scenes/FinalWInScreen.unity
+    guid: ef7bf77d13eafc74e822ff4027db9736
   m_configObjects: {}

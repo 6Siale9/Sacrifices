@@ -12,7 +12,7 @@ public class Tuto2 : MonoBehaviour
     private int _state = 0;
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private GameObject _gameObject = null;
-    private float _cd = 40;
+    private float _cd = 20;
     private bool _caca = true;
 
     // Start is called before the first frame update
