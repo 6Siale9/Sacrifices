@@ -12,7 +12,7 @@ public class WinScreen : MonoBehaviour
 
     public void NextLevelButton()
     {
-        SceneManager.LoadScene("Lvl2");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void BackMenu()

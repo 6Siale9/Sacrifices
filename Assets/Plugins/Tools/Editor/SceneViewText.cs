@@ -21,7 +21,7 @@ namespace FastMesh_Example
             SceneView.duringSceneGui -= OnSceneGUI;
         }
     
-        private void OnSceneGUI(SceneView sceneView)
+        private void OnSceneGUI(SceneView _sceneView)
         {
             if (isShow == false) return;
             
@@ -34,7 +34,7 @@ namespace FastMesh_Example
     
             float width = 420f;
             float height = 50f;
-            float x = (sceneView.position.width - width) / 2f;
+            float x = (_sceneView.position.width - width) / 2f;
             // float y = (sceneView.position.height - height) / 2f;
             float y = 10f;
     
