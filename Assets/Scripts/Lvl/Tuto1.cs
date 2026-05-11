@@ -67,7 +67,7 @@ public class Tuto1 : MonoBehaviour
 
     private void NextText()
     {
-        SondManager.Instance.PlaySound("Skip");
+        SondManager.Instance.PlaySound("Tuto"); 
         switch (_state)
         {
             case 0:

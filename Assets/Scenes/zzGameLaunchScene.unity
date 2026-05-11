@@ -303,16 +303,16 @@ MonoBehaviour:
     _volume: 0.78
   - _name: Eat
     _clip: {fileID: 8300000, guid: 59e4f4ce5ef57304a8e2b937865a4c1c, type: 3}
-    _volume: 0.5
+    _volume: 0.657
   - _name: Walk
     _clip: {fileID: 8300000, guid: 76d1f51f31764ea46b0d9063f13bb7f6, type: 3}
     _volume: 0.5
   - _name: Select
     _clip: {fileID: 8300000, guid: 5ddfe085ec1f3334d8315beb33116a0e, type: 3}
-    _volume: 0.308
+    _volume: 0.258
   - _name: Split
     _clip: {fileID: 8300000, guid: 405fc5aae733eb14492eb0a81ed4b8f1, type: 3}
-    _volume: 0.5
+    _volume: 0.726
   - _name: Click
     _clip: {fileID: 8300000, guid: 381739bb00c519e42accaf11339d97e8, type: 3}
     _volume: 0.5
@@ -320,14 +320,17 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: d92a35c1fccdb2e4c84f82f14b56e1cf, type: 3}
     _volume: 0.5
   - _name: Merge
-    _clip: {fileID: 8300000, guid: d92a35c1fccdb2e4c84f82f14b56e1cf, type: 3}
-    _volume: 0.5
+    _clip: {fileID: 8300000, guid: 273a24b4ce4864d438c6a1e6cd25c9b6, type: 3}
+    _volume: 0.629
   - _name: Unselect
-    _clip: {fileID: 8300000, guid: d92a35c1fccdb2e4c84f82f14b56e1cf, type: 3}
-    _volume: 0.5
+    _clip: {fileID: 8300000, guid: f21cc6cda2ea19d4599e2e7c13d8f221, type: 3}
+    _volume: 0.253
   - _name: Skip
-    _clip: {fileID: 8300000, guid: d92a35c1fccdb2e4c84f82f14b56e1cf, type: 3}
-    _volume: 0.5
+    _clip: {fileID: 8300000, guid: 1e93d929b9cb1c540b72ffc134eba7bf, type: 3}
+    _volume: 0.691
+  - _name: Tuto
+    _clip: {fileID: 8300000, guid: 7079cb78d7cb0d84cb3de91296097e62, type: 3}
+    _volume: 0.548
   _maxAudioSources: 5
 --- !u!4 &1055117576
 Transform:

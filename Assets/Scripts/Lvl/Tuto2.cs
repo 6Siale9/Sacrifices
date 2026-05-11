@@ -93,6 +93,7 @@ public class Tuto2 : MonoBehaviour
 
     private void NextText()
     {
+        SondManager.Instance.PlaySound("Tuto");
         switch (_state)
         {
             case 0:

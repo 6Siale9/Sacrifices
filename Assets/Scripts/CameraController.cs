@@ -101,9 +101,15 @@ public class CameraController : MonoBehaviour
                         Debug.Log("Clicked");
                         SondManager.Instance.PlaySound("Select");
                     }
+
                 }
+               
                 
             }
+        }
+        if (Input.GetMouseButtonDown(0)) 
+        {
+          SondManager.Instance.PlaySound("Skip"); 
         }
     }
 
