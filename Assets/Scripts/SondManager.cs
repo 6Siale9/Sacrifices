@@ -7,18 +7,18 @@ public class SondManager : MonoBehaviour
     [System.Serializable]
     public class SoundEffect
     {
-        public string name;
-        public AudioClip clip;
+        public string _name;
+        public AudioClip _clip;
         [Range(0f, 1f)]
-        public float volume;
+        public float _volume;
 
     }
 
-    [SerializeField] private SoundEffect[] soundEffects;
-    [ SerializeField] private int maxAudioSources = 5;
+    [SerializeField] private SoundEffect[] _soundEffects;
+    [ SerializeField] private int _maxAudioSources = 5;
 
-    private List<AudioSource> audioSources = new List<AudioSource>();
-    private Dictionary<string, AudioClip> soundEffectDict = new Dictionary<string, AudioClip>();
+    private List<AudioSource> _audioSources = new List<AudioSource>();
+    private Dictionary<string, AudioClip> _soundEffectDict = new Dictionary<string, AudioClip>();
     public static SondManager Instance { get; private set; }
     private void Awake()
     {
@@ -32,33 +32,33 @@ public class SondManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        for (int i = 0; i < maxAudioSources; i++)
+        for (int i = 0; i < _maxAudioSources; i++)
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-            audioSources.Add(audioSource);
+            _audioSources.Add(audioSource);
         }
-        foreach (SoundEffect sound in soundEffects)
+        foreach (SoundEffect sound in _soundEffects)
         {
-            if (sound.clip != null)
+            if (sound._clip != null)
             {
-                soundEffectDict[sound.name] = sound.clip;
+                _soundEffectDict[sound._name] = sound._clip;
             }
         }
     }  
     private AudioSource GetAvailableAudioSource()
     {
-        foreach (AudioSource source in audioSources)
+        foreach (AudioSource source in _audioSources)
         {
             if (!source.isPlaying)
             {
                 return source;
             }
         }
-        return audioSources.Count > 0 ? audioSources[0] : null; 
+        return _audioSources.Count > 0 ? _audioSources[0] : null; 
     }
      public void PlaySound(string name)
     {
-        if (!soundEffectDict.TryGetValue(name, out AudioClip clip))
+        if (!_soundEffectDict.TryGetValue(name, out AudioClip clip))
         {
             Debug.Log("pas trouvé" + name);
             return;
@@ -68,11 +68,11 @@ public class SondManager : MonoBehaviour
         if (audioSource != null)
         {
             float volume = 1f;
-            foreach (SoundEffect sound in soundEffects)
+            foreach (SoundEffect sound in _soundEffects)
             {
-                if (sound.name == name)
+                if (sound._name == name)
                 {
-                    volume = sound.volume;
+                    volume = sound._volume;
                     break;
                 }
             }

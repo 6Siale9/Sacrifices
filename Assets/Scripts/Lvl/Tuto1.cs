@@ -67,25 +67,26 @@ public class Tuto1 : MonoBehaviour
 
     private void NextText()
     {
+        SondManager.Instance.PlaySound("Skip");
         switch (_state)
         {
             case 0:
                 _text.text = "Bienvenue, vite les fourmis ont besoin de toi";
                 break;
             case 1:
-                _text.text = "Mène celle ci jusque sa fourmilière";
+                _text.text = "Mene celle ci jusque sa fourmiliere";
                 break;
             case 2:
-                _text.text = "Pour pouvoir la diriger, sélectionne la avec clic droit";
+                _text.text = "Pour pouvoir la diriger, selectionne la avec clic droit";
                 break;
             case 3:
-                _text.text = "Bien, maintenant utilise ton clic gauche pour la déplacer";
+                _text.text = "Bien, maintenant utilise ton clic gauche pour la deplacer";
                 break;
             case 4:
-                _text.text = "Tu peux toujours la désélectionner avec clic droit";
+                _text.text = "Tu peux toujours la deselectionner avec clic droit";
                 break;
             case 5:
-                _text.text = "Maintenant emmène là jusque chez elle au bout du chemin de terre";
+                _text.text = "Maintenant emmene la jusque chez elle au bout du chemin de terre";
                 break;
             case 6:
                 _text.text = "Bonne chance !";

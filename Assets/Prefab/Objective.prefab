@@ -53,6 +53,7 @@ MonoBehaviour:
   _sticks: {fileID: 1676580962024312525}
   _dirt: {fileID: 7821414777066373980}
   _canvas: {fileID: 8861664309218230443}
+  _manager: {fileID: 0}
 --- !u!135 &4105097631904856819
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -141,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: esfdsefds
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8c09eb4418a1faf46a15a1a023eb76e9, type: 2}
+  m_sharedMaterial: {fileID: 7887838504837411284, guid: 8c09eb4418a1faf46a15a1a023eb76e9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

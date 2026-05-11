@@ -97,11 +97,12 @@ public class Ant : MonoBehaviour
         {
             if (_sliderValue <= 1)
             {
-                _sliderValue += Time.deltaTime * 0.1f;
+                _sliderValue += Time.deltaTime * 0.2f;
             }
             else
             {
                 _sliderValue = 0;
+                SondManager.Instance.PlaySound("Eat");
                 if (_workstation.ResourceAvailable > _size)
                 {
                     RessourceManager.Instance.Food += _size;
@@ -131,6 +132,7 @@ public class Ant : MonoBehaviour
             Ant enteringScript = entering.GetComponent<Ant>();
             if (_size > enteringScript.Size)
             {
+                SondManager.Instance.PlaySound("Merge");
                 _size += enteringScript.Size;
                 if (enteringScript.Selected)
                 {
@@ -154,6 +156,7 @@ public class Ant : MonoBehaviour
         else if (entering.CompareTag("Enemy"))
         {
             Instantiate(_blood, transform.position, Quaternion.Euler(-90f, 0f, 0f));
+            SondManager.Instance.PlaySound("Dies");
             Enemy enteringScript = entering.GetComponent<Enemy>();
             if (enteringScript.Size > _size)
             {
@@ -194,6 +197,7 @@ public class Ant : MonoBehaviour
     {
         if (_size != 1)
         {
+            SondManager.Instance.PlaySound("Split");
             Vector3 offset = new Vector3(gameObject.transform.position.y, gameObject.transform.position.x + 1, gameObject.transform.position.z);
             bool isOdd = false;
             if (_size % 2 == 1)

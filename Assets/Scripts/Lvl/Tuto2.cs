@@ -96,28 +96,28 @@ public class Tuto2 : MonoBehaviour
         switch (_state)
         {
             case 0:
-                _text.text = "Envoie des fourmis sur les points de ressources pour qu'elles commencent à récolter";
+                _text.text = "Envoie des fourmis sur les points de ressources pour qu'elles commencent a recolter";
                 break;
             case 1:
-                _text.text = "La nourriture récoltée permet de générer plus de fourmis";
+                _text.text = "La nourriture recoltee permet de generer plus de fourmis";
                 break;
             case 2:
-                _text.text = "Appuie sur Espace pour diviser un groupe en deux et commencer à récolter aux deux points de ressources";
+                _text.text = "Appuie sur Espace pour diviser un groupe en deux et commencer a recolter aux deux points de ressources";
                 break;
             case 3:
                 _text.text = "";
                 break;
             case 4:
-                _text.text = "Des ennemis sont apparus ! Envoie des fourmis défendre ton territoire";
+                _text.text = "Des ennemis sont apparus ! Envoie des fourmis defendre ton territoire";
                 break;
             case 5:
-                _text.text = "Si ta fourmilière tombe, la partie est finie, n'hésite pas à envoyer tes fourmis au casse pipe si c'est pour la protéger";
+                _text.text = "Si ta fourmiliere tombe, la partie est finie, n'hesite pas a envoyer tes fourmis au casse pipe si c'est pour la proteger";
                 break;
             case 6:
                 _text.text = "";
                 break;
             case 7:
-                _text.text = "Bien, te voilà prêt. Tente de reconstruire les ruines de prochains niveaux en sacrifiant des fourmis pour la tache";
+                _text.text = "Bien, te voila pret. Tente de reconstruire les ruines de prochains niveaux en sacrifiant des fourmis pour la tache";
                 break;
             case 8:
                 _text.text = "Bonne chance et attention aux terriers ennemis !";

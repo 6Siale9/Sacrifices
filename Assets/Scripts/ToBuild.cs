@@ -48,6 +48,7 @@ public class ToBuild : MonoBehaviour
             GameObject entering = other.gameObject;
             if (entering.CompareTag("AllyAnt"))
             {
+                SondManager.Instance.PlaySound("Build");
                 Ant ant = entering.GetComponent<Ant>();
                 if (_toGo < ant.Size)
                 {
