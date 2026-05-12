@@ -1,1 +1,1 @@
-Assets/Scenes/FirstLvl.unity
+Assets/Scenes/Lvl2.unity
