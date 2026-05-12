@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6171035127644892999}
   - component: {fileID: 4204712240622020709}
   - component: {fileID: 6521461559903679992}
+  - component: {fileID: 6713677342307771912}
   m_Layer: 0
   m_Name: "fourmisli\xE8re"
   m_TagString: Untagged
@@ -98,10 +99,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _army: {fileID: 0}
+  _enemyObj: {fileID: 0}
   _ant: {fileID: 4481151589586961332, guid: b1e8a63d272711a4b8a5fd1154fae8b9, type: 3}
   _farm: {fileID: 0}
   _cooldown1: 1
   _cooldown2: 5
+--- !u!136 &6713677342307771912
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007455666186878071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.47
+  m_Height: 11.9
+  m_Direction: 0
+  m_Center: {x: -0.23506397, y: 0.24741271, z: 0.036178343}
 --- !u!1 &3366629781384720829
 GameObject:
   m_ObjectHideFlags: 0

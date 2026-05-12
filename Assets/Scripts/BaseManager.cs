@@ -9,10 +9,10 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private GameObject _ant;
     [SerializeField] private GameObject _farm;
     
-    private float _cooldown1sec = 0f;
+    private float _cooldown1Sec = 0f;
     [SerializeField] private float _cooldown1 = 1f;
     [SerializeField] private float _cooldown2 = 5f;
-    private float _cooldown2sec = 0f;
+    private float _cooldown2Sec = 0f;
     private bool _healing = false;
     private Vector3 _spawnPosition = new Vector3(3.2f, 0.5f, 9.2f);
 
@@ -32,12 +32,13 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
     private void Initialize()
     {
         RessourceManager.Instance.Base = this.gameObject;
+        RessourceManager.Instance.Food = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (RessourceManager.Instance.Health < 100f)
+        if (RessourceManager.Instance.Health < 1f)
         {
             _healing = true;
         }
@@ -45,7 +46,7 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
         {
             _healing = false;
         }
-        if (_cooldown1sec >= _cooldown1)
+        if (_cooldown1Sec >= _cooldown1)
         {
             _cooldown1 = 5f;
             if (_healing == true)
@@ -58,7 +59,7 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
             }
 
         }
-        if (_cooldown2sec >= _cooldown2 && !_healing && RessourceManager.Instance.Food > 0)
+        if (_cooldown2Sec >= _cooldown2 && !_healing && RessourceManager.Instance.Food > 0)
         {
             _cooldown2 = 5f;
             if (RessourceManager.Instance.Food > 2)
@@ -68,8 +69,8 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
             }  
               
         }
-        _cooldown1 -= Time.deltaTime;
-        _cooldown2 -= Time.deltaTime;  
+        _cooldown1Sec += Time.deltaTime;
+        _cooldown2Sec += Time.deltaTime;  
         //RessourceManager.Instance.Aphids
     }
 

@@ -26,7 +26,7 @@ public class ObMana : MonoBehaviour
     public void OneDone()
     {
         _actually += 1;
-        if (_actually == _toDo)
+        if (_actually >= _toDo)
         {
             _go = true;
         }
