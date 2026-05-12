@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
@@ -30,6 +31,7 @@ public class CameraController : MonoBehaviour
         Movement();
         Zoom();
         Click();
+        Retry();
     }
      void Movement()
      {
@@ -113,5 +115,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
-
+    private void Retry()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Scene a = SceneManager.GetActiveScene();
+            int b = a.buildIndex;
+            SceneManager.LoadScene(b);
+        }
+    }
 }
