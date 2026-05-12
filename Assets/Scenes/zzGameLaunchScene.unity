@@ -332,7 +332,7 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 7079cb78d7cb0d84cb3de91296097e62, type: 3}
     _volume: 0.548
   - _name: Reload
-    _clip: {fileID: 8300000, guid: 7079cb78d7cb0d84cb3de91296097e62, type: 3}
+    _clip: {fileID: 8300000, guid: 684b0317511509c409244e96446d1afc, type: 3}
     _volume: 0.548
   _maxAudioSources: 5
 --- !u!4 &1055117576
