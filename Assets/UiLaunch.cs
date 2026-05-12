@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UiLaunch : MonoBehaviour
 {
     [SerializeField] private GameObject _text = null;
+    [SerializeField] private GameObject _tuto = null;
     [SerializeField] private Image _image = null;
     private float _alpha = 1f;
     private float _pos = -800f;
@@ -60,6 +61,10 @@ public class UiLaunch : MonoBehaviour
         }
         if (_pos >= 800)
         {
+            if (_tuto != null)
+            {
+                _tuto.SetActive(true);
+            }
             Destroy(gameObject);
         }
         _text.transform.localPosition = new Vector3(_pos, 0, 0);
