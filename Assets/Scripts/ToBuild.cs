@@ -8,11 +8,11 @@ public class ToBuild : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text = null;
     [SerializeField] private int _toGo = 0;
-    private bool _completed = false;
     [SerializeField] private GameObject _sticks = null;
     [SerializeField] private GameObject _dirt = null;
     [SerializeField] private Canvas _canvas = null;
     [SerializeField] private ObMana _manager = null;
+    private bool _completed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +50,15 @@ public class ToBuild : MonoBehaviour
             {
                 SondManager.Instance.PlaySound("Build");
                 Ant ant = entering.GetComponent<Ant>();
-                if (_toGo < ant.Size)
+                if (_toGo <= ant.Size)
                 {
                     ant.Size -= _toGo;
                     _toGo = 0;
                     _manager.OneDone();
+                    if (ant.Size == 0)
+                    {
+                        Destroy(ant.gameObject);
+                    }
                 }
                 else
                 {

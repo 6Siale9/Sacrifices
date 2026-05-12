@@ -29,7 +29,7 @@ public class RessourceManager : MonoBehaviour
             _health = value;
         }
      }
-    private int _health = 100;
+    private int _health = 1;
     public List<Ant> Ants
     {
         get => _ants;
