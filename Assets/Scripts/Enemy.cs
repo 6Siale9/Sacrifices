@@ -64,6 +64,6 @@ public class Enemy : MonoBehaviour
     {
         Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
         _canva.transform.rotation = a;
-            _text.text = "Enemy size : " + _size.ToString();
+        _text.text = _size.ToString();
     }
 }

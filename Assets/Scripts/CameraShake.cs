@@ -6,13 +6,13 @@ public class CameraShake : MonoBehaviour
 {
 
 public static CameraShake Instance { get; private set; }
-    private float shakeDuration = 0.3f;
-    private float shakeMagnitude = 0.2f;
-    private Vector3 initialPosition; 
+    private float _shakeDuration = 0.3f;
+    private float _shakeMagnitude = 0.2f;
+    private Vector3 _initialPosition; 
 
     void Awake()
     {
-        initialPosition = transform.localPosition;
+        _initialPosition = transform.localPosition;
         if (Instance == null)
         {
             Instance = this;
@@ -42,18 +42,18 @@ public static CameraShake Instance { get; private set; }
     {
         float shakeTime = 0.0f;
 
-        while (shakeTime < shakeDuration)
+        while (shakeTime < _shakeDuration)
         {
-            float x = UnityEngine.Random.Range(-1f, 1f) * shakeMagnitude;
-            float y = UnityEngine.Random.Range(-1f, 1f) * shakeMagnitude;
+            float x = UnityEngine.Random.Range(-1f, 1f) * _shakeMagnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * _shakeMagnitude;
 
-            transform.localPosition = new Vector3(initialPosition.x + x, initialPosition.y + y, initialPosition.z);
+            transform.localPosition = new Vector3(_initialPosition.x + x, _initialPosition.y + y, _initialPosition.z);
 
             shakeTime += Time.deltaTime;
 
             yield return null;
         }
 
-        transform.localPosition = initialPosition;
+        transform.localPosition = _initialPosition;
     }
 }

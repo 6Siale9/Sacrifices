@@ -31,7 +31,7 @@ public class SpawnerE : MonoBehaviour
         Quaternion a = new Quaternion(Camera.main.transform.rotation.x, Camera.main.transform.rotation.y, Camera.main.transform.rotation.z, Camera.main.transform.rotation.w);
         _canvas.transform.rotation = a;
         float b = Mathf.Round(_firstCd);
-        _text.text = _size.ToString() + " dans " + b.ToString();
+        _text.text = _size.ToString() + " dans " + b.ToString() + "s";
     }
 
     private void SpawnLogic()
