@@ -8,7 +8,8 @@ public class BaseManager : MonoBehaviour
     [SerializeField] private Transform _enemyObj;
     [SerializeField] private GameObject _ant;
     [SerializeField] private GameObject _farm;
-    
+    [SerializeField] private GameObject _defeat;
+
     private float _cooldown1Sec = 0f;
     [SerializeField] private float _cooldown1 = 1f;
     [SerializeField] private float _cooldown2 = 5f;
@@ -91,6 +92,7 @@ on trigger enter se supprimer et donner sa size a la fourmis qui spawn
             if (RessourceManager.Instance.Health <= 0)
             {
                 Destroy(gameObject);
+                _defeat.SetActive(true);
             }
             else
             {

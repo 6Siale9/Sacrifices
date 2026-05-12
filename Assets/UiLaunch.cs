@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class UiLaunch : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _text = null;
+    [SerializeField] private GameObject _text = null;
+    [SerializeField] private GameObject _tuto = null;
     [SerializeField] private Image _image = null;
     private float _alpha = 1f;
-
+    private float _pos = -800f;
+    private float _timing = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +23,14 @@ public class UiLaunch : MonoBehaviour
     void Update()
     {
         UpdateImageAlpha();
+        UpdateTextPosition();
     }
 
     private void UpdateImageAlpha()
     {
         if (_alpha > 0)
         {
-            _alpha -= Time.deltaTime;
+            _alpha -= Time.deltaTime * 0.6f;
             Color color = new Color(0f, 0f, 0f, _alpha);
             _image.color = color;
         }
@@ -37,5 +40,33 @@ public class UiLaunch : MonoBehaviour
             Color color = new Color(0f, 0f, 0f, _alpha);
             _image.color = color;
         }
+    }
+
+    private void UpdateTextPosition()
+    {
+        if (_pos < 0)
+        {
+            _pos += Time.deltaTime * 900;
+        }
+        if (_pos >= 0 && _pos < 800)
+        {
+            if (_timing < 0.6f)
+            {
+                _timing += Time.deltaTime;
+            }
+            else
+            {
+                _pos += Time.deltaTime * 900;
+            }
+        }
+        if (_pos >= 800)
+        {
+            if (_tuto != null)
+            {
+                _tuto.SetActive(true);
+            }
+            Destroy(gameObject);
+        }
+        _text.transform.localPosition = new Vector3(_pos, 0, 0);
     }
 }

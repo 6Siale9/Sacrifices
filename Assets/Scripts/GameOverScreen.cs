@@ -5,18 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public void Start()
-    { 
+    private void OnEnable()
+    {
         Time.timeScale = 0f;
     }
-    public void RestartButton()
+
+    private void OnDisable()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void BackMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene(1);
     }
 }
