@@ -1,2 +1,1 @@
-Assets/Scenes/zzGameLaunchScene.unity
-Assets/Scenes/MainMenuScene.unity
+Assets/Scenes/Lvl5.unity
